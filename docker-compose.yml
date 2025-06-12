@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: nextauth-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4001"
+    env_file:
+      - .env
+    networks:
+      - imraffy-network
+
+networks:
+  imraffy-network:
+    external: true
